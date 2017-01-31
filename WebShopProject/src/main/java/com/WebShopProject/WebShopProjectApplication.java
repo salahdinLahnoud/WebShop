@@ -15,8 +15,13 @@ import com.WebShopProject.entity.Stock;
 public class WebShopProjectApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(WebShopProjectApplication.class, args);
-		EntityRepository productDao = ctx.getBean(EntityRepository.class);
+	//	ApplicationContext ctx = 
+				
+				SpringApplication.run(WebShopProjectApplication.class, args);
+		
+		
+		
+/*		EntityRepository productDao = ctx.getBean(EntityRepository.class);
 		CategoryRepository categoryDao = ctx.getBean(CategoryRepository.class);
 		StockRepository stockDao = ctx.getBean(StockRepository.class);
 		
@@ -41,7 +46,7 @@ public class WebShopProjectApplication {
 		productDao.save(new Product("LG 34", 44, 8, c2, s1));
 		productDao.save(new Product("SAMSUNG 7", 700, 9,c1, s2));
 		productDao.save(new Product("TOSHIBA", 1000, 10, c3, s3));
-		productDao.save(new Product("IPHONE 9", 600, 8, c1, s2));
+		productDao.save(new Product("IPHONE 9", 600, 8, c1, s2));*/
 		
 		
 		

@@ -33,8 +33,8 @@ public class ProductDaoImpl implements EntityRepository<Product>{
 
 	@Override
 	public List<Product> findByName(String mc) {
-		Query query=  em.createQuery("SELECT p FROM Product p where p.name like :x "); 				
-		query.setParameter("x", mc);
+		Query query=  em.createQuery("SELECT p FROM Product p where p.naam like :x "); 				
+		query.setParameter("x", "%"+mc+"%");
 		return query.getResultList();
 	}
 
