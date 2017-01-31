@@ -43,11 +43,6 @@ public class ProductController {
 		public Product getProduct(@PathVariable(name="id")Long id){
 			Product p =(Product) repo.findOne(id);
 			return p;			
-		}
-		
-		
-		
-		
-		
+		}		
 	
 }
