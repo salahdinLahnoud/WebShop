@@ -4,7 +4,7 @@ import java.util.*;
 
 public interface ICustomerDao {
 	
-	public void addCustomer(Customer customer);
+	public Customer addCustomer(Customer customer);
 	public Collection<Customer>getAllCustomers();	
 	public Customer getCustumerByID(Long id);
 }
