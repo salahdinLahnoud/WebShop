@@ -3,13 +3,17 @@ package com.WebShopProject.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.WebShopProject.dao.ISearchProductRepository;
 import com.WebShopProject.dao.ProductDaoImpl;
 import com.WebShopProject.entity.Product;
 
@@ -18,7 +22,9 @@ import com.WebShopProject.entity.Product;
 public class ProductController {
 
 	@Autowired
-	private ProductDaoImpl repo;	
+	private ProductDaoImpl repo;
+	@Autowired
+	private ISearchProductRepository searchRepo;
 	
 	 @RequestMapping("/test")
 	    public String index(){
@@ -30,15 +36,12 @@ public class ProductController {
 			return (List<Product>)repo.findAll();
 		}
 		
-		@RequestMapping(value="/zoekProduct/{naam}", method=RequestMethod.GET)
-		public Product getProduct(@RequestParam(name="naam",defaultValue="0")String naam){
-			
-			//return (Product) repo.findByName(naam);			
-			Product p =(Product) repo.findByName(naam);
-			return p;			
+		@RequestMapping(value="/zoekProduct/", method=RequestMethod.GET)
+		public Page <Product> getProduct(String naam, int page, int size){		
+			return searchRepo.searchProduct("%"+naam+"%", new PageRequest(page, size));		
 		}
 		
-		
+		 
 		@RequestMapping(value="/zoekProductByID/{id}", method=RequestMethod.GET)
 		public Product getProduct(@PathVariable(name="id")Long id){
 			Product p =(Product) repo.findOne(id);
@@ -55,7 +58,10 @@ public class ProductController {
 			return repo.save(p);			
 		}
 		
-		
+		/*@RequestMapping(value="/remove/{id}", method=RequestMethod.DELETE)
+		public Product removeProduct(@PathVariable(name="id") Long id){		 
+			return repo.remove(id);			
+		}*/
 		
 	
 }

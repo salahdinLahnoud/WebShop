@@ -43,6 +43,16 @@ public class ProductDaoImpl implements EntityRepository<Product>{
 		Product p = em.find(Product.class, id);
 		return p;
 	}
+	
+	
+	public Product findOneByName(String naam) {
+		Product p = em.find(Product.class,naam);
+		return p;
+	}
+	
+	
+	
+	
 
 	@Override
 	public Product update(Product p) {
@@ -53,7 +63,13 @@ public class ProductDaoImpl implements EntityRepository<Product>{
 
 	@Override
 	public void remove(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*@Override
+	public Product remove(Long id) {
 		Product p = em.find(Product.class, id);
 		em.remove(p);
-	}
+	}*/
 }

@@ -2,9 +2,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<script type="text/javascript" src="angularjs/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<title>ShoppingCart Project </title>
 </head>
-<body>
-<h3>Test</h3>
+
+<body ng-app="MyApp" ng-controller="ProductController">
+<div class="container">
+<div>
+<button ng-click="zoeken()" class="btn btn-primary">Zoeken</button>
+</div>
+<table class="table table-striped">
+<tr>
+<th>ID</th><th>Naam</th><th>Price</th><th>Quantity</th><th>Category</th><th>Stock</th>
+<tr ng-repeat="p in product">
+
+<td>{{p.id}}</td>
+<td>{{p.naam}}</td>
+<td>{{p.price}}</td>
+<td>{{p.quantity}}</td>
+<td>{{p.category}}</td>
+<td>{{p.stock}}</td>
+</tr>
+</table>
+</div>
+
 </body>
 </html>

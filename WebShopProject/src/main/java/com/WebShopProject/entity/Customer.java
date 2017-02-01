@@ -62,6 +62,23 @@ public class Customer implements Serializable{
 	public void setWachtwoord(String wachtwoord) {
 		this.wachtwoord = wachtwoord;
 	}
+	
+	
+	
+	
+	
+	
+	public Customer(String naam, String email, String phone, String gebruikersnaam, String wachtwoord) {
+		super();
+		this.naam = naam;
+		this.email = email;
+		this.phone = phone;
+		this.gebruikersnaam = gebruikersnaam;
+		this.wachtwoord = wachtwoord;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", naam=" + naam + ", email=" + email + ", phone=" + phone
