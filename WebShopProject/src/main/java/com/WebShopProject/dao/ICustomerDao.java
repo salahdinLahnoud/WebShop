@@ -2,6 +2,7 @@ package com.WebShopProject.dao;
 import com.WebShopProject.entity.*;
 import java.util.*;
 
+
 public interface ICustomerDao {
 	
 	public Customer addCustomer(Customer customer);
