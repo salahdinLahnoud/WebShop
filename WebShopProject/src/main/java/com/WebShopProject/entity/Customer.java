@@ -4,7 +4,7 @@ import javax.persistence.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.io.*;
-
+import java.util.*;
 
 
 @Entity
@@ -24,6 +24,9 @@ public class Customer implements Serializable{
 	private String email;	
 	@NotEmpty(message="The customer telefoon must be not null")
 	private String phone;
+	@OneToMany(mappedBy ="CUSTOMER",fetch=FetchType.LAZY)
+	private Collection<Bestelling> betelling;
+	
 	
 	public Customer() {
 		super();
@@ -58,10 +61,20 @@ public class Customer implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public Collection<Bestelling> getBetelling() {
+		return betelling;
+	}
+	public void setBetelling(Collection<Bestelling> betelling) {
+		this.betelling = betelling;
+	}
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", naam=" + naam + ", email=" + email + ", phone=" + phone + "]";
+		return "Customer [customerId=" + customerId + ", naam=" + naam + ", email=" + email + ", phone=" + phone
+				+ ", betelling=" + betelling + "]";
 	}
+	
+	
 	
 	
 	
