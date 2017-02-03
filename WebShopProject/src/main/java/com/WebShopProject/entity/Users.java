@@ -1,30 +1,47 @@
-//package com.WebShopProject.entity;
+package com.WebShopProject.entity;
 
-//import java.io.Serializable;
-/**import java.util.Collection;
+import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-**/
 
-//@Entity
-//public class Users implements Serializable{
+
+@Entity
+public class Users implements Serializable{
 
 	/**
 	 * table users
 	 */
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-	/**
+	
 	@Id@GeneratedValue
 	private Long id;
 	private String name; 
 	private String email;
-	@OneToMany(mappedBy="users",fetch=FetchType.LAZY)	 
-	private Collection <Cart> cart;
+	private String username;
+	private String password;
+	private boolean activated;
+	
+	
+	
+	
+	public Users(String name, String email, String username, String password, boolean activated) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.activated = activated;
+	}
+	public Users() {
+		super();
+	}
+	private Collection<Role> role;
 	public Long getId() {
 		return id;
 	}
@@ -43,37 +60,32 @@ import javax.persistence.OneToMany;
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Collection<Cart> getCart() {
-		return cart;
+	public String getUsername() {
+		return username;
 	}
-	public void setCart(Collection<Cart> cart) {
-		this.cart = cart;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public Users() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getPassword() {
+		return password;
 	}
-	public Users(String name, String email) {
-		super();
-		this.name = name;
-		this.email = email;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public Users(String name, String email, Collection<Cart> cart) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.cart = cart;
+	public boolean isActivated() {
+		return activated;
 	}
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", name=" + name + ", email=" + email + ", cart=" + cart + "]";
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
-	
-	
-	
+	public Collection<Role> getRole() {
+		return role;
+	}
+	public void setRole(Collection<Role> role) {
+		this.role = role;
+	}
 	
 	
 	
 	
 }
-**/
