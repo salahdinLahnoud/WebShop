@@ -1,39 +1,38 @@
-//package com.WebShopProject.entity;
+package com.WebShopProject.entity;
 
-//import java.io.Serializable;
-//import java.util.*;
+import java.io.Serializable;
+import java.util.*;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-
-
-
-//@Entity
-//public class Cart implements Serializable{
+@Entity
+public class Cart implements Serializable{
 
 	/**
 	 * table cart
 	 */
 	
-/**private static final long serialVersionUID = 1L;
+
+ private static final long serialVersionUID = 1L;
+ 
 	@Id@GeneratedValue
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name="ID_USER")
 	private Users user;
 	@ManyToOne
-	@JoinColumn(name="ID_PROD")
+	@JoinColumn(name="ID_PRODUCT")
 	private Product product;
 	private double bedrag;
 	private Date datum;
 	public double getBedrag() {
 		return bedrag;
 	}
-	/**
+	
 	public void setBedrag(double bedrag) {
 		this.bedrag = bedrag;
 	}
@@ -81,20 +80,6 @@
 	public Cart() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
 
-***/

@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -17,17 +20,22 @@ public class Product implements Serializable{
 	 * Product table
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id@GeneratedValue
+	@Id@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@Column(length=70)
+	@NotEmpty
 	private String naam;
+	@NotEmpty
 	private double price;
+	@NotEmpty
 	private int quantity;
 	@ManyToOne
-	@JoinColumn(name="ID_CAT")
+	/** forgin key category table**/
+	@JoinColumn(name="ID_CATEGORY")
 	private Category category;
 	@ManyToOne
-	@JoinColumn(name="ID_STO")
+	/** forgin key stock table**/
+	@JoinColumn(name="ID_STOCK")
 	private Stock stock;
 	
 	

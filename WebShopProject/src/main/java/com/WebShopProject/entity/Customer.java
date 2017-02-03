@@ -11,7 +11,7 @@ import java.io.*;
 public class Customer implements Serializable{
 
 	/**
-	 * 
+	 * create costumer entity
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -22,10 +22,18 @@ public class Customer implements Serializable{
 	private String naam;
 	@NotEmpty(message="The customer email must be not null")
 	private String email;	
-	@NotEmpty(message="The customer gebruikersnaam must be not null")private String phone;
-	private String gebruikersnaam;
-	@NotEmpty(message="The customer wachtwoord must be not null")
-	private String wachtwoord;
+	@NotEmpty(message="The customer telefoon must be not null")
+	private String phone;
+	
+	public Customer() {
+		super();
+	}
+	public Customer(String naam, String email, String phone) {
+		super();
+		this.naam = naam;
+		this.email = email;
+		this.phone = phone;
+	}
 	public Long getCustomerId() {
 		return customerId;
 	}
@@ -50,40 +58,11 @@ public class Customer implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getGebruikersnaam() {
-		return gebruikersnaam;
-	}
-	public void setGebruikersnaam(String gebruikersnaam) {
-		this.gebruikersnaam = gebruikersnaam;
-	}
-	public String getWachtwoord() {
-		return wachtwoord;
-	}
-	public void setWachtwoord(String wachtwoord) {
-		this.wachtwoord = wachtwoord;
-	}
-	
-	
-	
-	
-	
-	
-	public Customer(String naam, String email, String phone, String gebruikersnaam, String wachtwoord) {
-		super();
-		this.naam = naam;
-		this.email = email;
-		this.phone = phone;
-		this.gebruikersnaam = gebruikersnaam;
-		this.wachtwoord = wachtwoord;
-	}
-	
-	
-	
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", naam=" + naam + ", email=" + email + ", phone=" + phone
-				+ ", gebruikersnaam=" + gebruikersnaam + ", wachtwoord=" + wachtwoord + "]";
+		return "Customer [customerId=" + customerId + ", naam=" + naam + ", email=" + email + ", phone=" + phone + "]";
 	}
+	
 	
 	
 	
