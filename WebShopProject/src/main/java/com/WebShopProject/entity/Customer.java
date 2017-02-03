@@ -22,21 +22,22 @@ public class Customer implements Serializable{
 	private String naam;
 	@NotEmpty(message="The customer email must be not null")
 	private String email;	
-	@NotEmpty(message="The customer telefoon must be not null")
+	@NotEmpty(message="The customer telephon must be not null")
 	private String phone;
 	@OneToMany(mappedBy ="CUSTOMER",fetch=FetchType.LAZY)
 	private Collection<Bestelling> betelling;
-	
-	
+		
 	public Customer() {
 		super();
 	}
+
 	public Customer(String naam, String email, String phone) {
 		super();
 		this.naam = naam;
 		this.email = email;
 		this.phone = phone;
 	}
+
 	public Long getCustomerId() {
 		return customerId;
 	}
