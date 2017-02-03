@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Cart implements Serializable{
+public class Item implements Serializable{
 
 	/**
 	 * table cart
@@ -29,6 +29,8 @@ public class Cart implements Serializable{
 	private Product product;
 	private double bedrag;
 	private Date datum;
+	private int quantity;
+	
 	public double getBedrag() {
 		return bedrag;
 	}
@@ -60,12 +62,23 @@ public class Cart implements Serializable{
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public Cart(double bedrag, Date datum) {
+	public Item(double bedrag, Date datum) {
 		super();
 		this.bedrag = bedrag;
 		this.datum = datum;
 	}
-	public Cart(Users user, Product product, double bedrag, Date datum) {
+	
+	
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Item(Users user, Product product, double bedrag, Date datum) {
 		super();
 		this.user = user;
 		this.product = product;
@@ -74,10 +87,10 @@ public class Cart implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", user=" + user + ", product=" + product + ", bedrag=" + bedrag + ", datum=" + datum
+		return "Item [id=" + id + ", user=" + user + ", product=" + product + ", bedrag=" + bedrag + ", datum=" + datum
 				+ "]";
 	}
-	public Cart() {
+	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}	
