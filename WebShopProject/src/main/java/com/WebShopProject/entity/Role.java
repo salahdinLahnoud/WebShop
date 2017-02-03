@@ -21,6 +21,7 @@ public class Role implements Serializable{
 	private Long roleId;
 	private String roleNaam;
 	
+	
 	public Role() {
 		super();
 	}
