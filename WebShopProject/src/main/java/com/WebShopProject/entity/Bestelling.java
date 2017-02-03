@@ -31,7 +31,7 @@ public class Bestelling implements Serializable{
 	@JoinColumn(name="COSTUMER_ID")
 	private Customer costumer;
 	@OneToMany(mappedBy="CART")
-	private Collection<Cart> cart;
+	private Collection<Item> item;
 	
 	public Bestelling() {
 		super();
@@ -58,11 +58,11 @@ public class Bestelling implements Serializable{
 	public void setCostumer(Customer costumer) {
 		this.costumer = costumer;
 	}
-	public Collection<Cart> getCart() {
-		return cart;
+	public Collection<Item> getCart() {
+		return item;
 	}
-	public void setCart(Collection<Cart> cart) {
-		this.cart = cart;
+	public void setCart(Collection<Item> item) {
+		this.item = item;
 	}
 	
 	
