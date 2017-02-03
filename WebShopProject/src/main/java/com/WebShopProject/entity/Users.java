@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
@@ -26,7 +27,9 @@ public class Users implements Serializable{
 	private String username;
 	private String password;
 	private boolean activated;
-	
+	@OneToMany
+	@JoinColumn(name="USER_ID")
+	private Collection<Role>rolen;
 	
 	
 	
@@ -41,7 +44,7 @@ public class Users implements Serializable{
 	public Users() {
 		super();
 	}
-	private Collection<Role> role;
+	
 	public Long getId() {
 		return id;
 	}
@@ -78,14 +81,5 @@ public class Users implements Serializable{
 	public void setActivated(boolean activated) {
 		this.activated = activated;
 	}
-	public Collection<Role> getRole() {
-		return role;
-	}
-	public void setRole(Collection<Role> role) {
-		this.role = role;
-	}
-	
-	
-	
 	
 }
