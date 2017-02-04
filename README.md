@@ -1,2 +1,4 @@
 # WebShop
-webshop with Spring boot and Angular js 1, Bootstrap
+webshop with Spring boot,JPA Hibernate and Angular js 1, Bootstrap.
+
+
